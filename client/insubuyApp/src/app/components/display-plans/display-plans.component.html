@@ -1,0 +1,24 @@
+<div class="wrapper">
+
+        <div>
+                <input type="text" placeholder="Search for Plans" [(ngModel)]="filterby" >
+              </div><!-- /input-group -->
+           
+          <br/>
+    
+        <div *ngIf="filterby">
+          Plans Filtered Using: {{filterby}}
+        </div>
+
+    <div *ngFor="let plan of quotes | quotesFilter:filterby">
+        <ul>
+            <li>{{plan.id}}</li>
+            <li> {{plan.price}} </li>
+            <li> {{plan.name}} </li>
+            <li> {{plan.type}} </li>
+            <li> {{plan.description}} </li>
+            <li> {{plan.section}} </li>
+            <li> {{plan.bestSellers}} </li>
+        </ul>
+    </div>
+</div>
