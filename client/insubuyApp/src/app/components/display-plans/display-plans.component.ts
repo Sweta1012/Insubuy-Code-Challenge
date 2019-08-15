@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class DisplayPlansComponent implements OnInit {
 
   plans = [];
+  quotePlans = []
   plansToCompare = [];
   filterby:string = '';
   minPlansToCompare:boolean = false;
@@ -20,7 +21,22 @@ export class DisplayPlansComponent implements OnInit {
   ngOnInit() {
       this._getQuotesService.getQuotes().subscribe((res:any) => {
         this.plans = res.quotes;
+        this.quotePlans = res.quotes;
       })
+  }
+
+  getBestSellers(e) {
+      if(e.target.checked) {
+        let bestSellers = this.plans.filter((item, index) => {
+           return item.bestSellers == true;
+        });
+
+        this.plans = bestSellers;
+      } else if(!e.target.checked) {
+
+        this.plans = this.quotePlans;
+        
+      }
   }
 
   selectQuotesToCompare(e, plan, id) {

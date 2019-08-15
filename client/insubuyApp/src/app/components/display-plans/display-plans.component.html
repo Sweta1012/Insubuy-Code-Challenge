@@ -1,8 +1,12 @@
 <div class="wrapper">
 
-        <div>
+          <div>
                 <input type="text" placeholder="Search for Plans" [(ngModel)]="filterby" >
-              </div><!-- /input-group -->
+
+                <div class="bestSeller">
+                    <input type="checkbox" name="bestSeller" value="best seller" (change)="getBestSellers($event)" /> Best Sellers
+                </div>          
+          </div>
            
           <br/>
     
@@ -21,7 +25,7 @@
             <li>Best Sellers: {{plan.bestSellers}} </li>
         </ul>
         <div class="compare">
-          <input type="checkbox" name="compare" value="Bike" (change)="selectQuotesToCompare($event, plan, plan.id)" /> Compare
+          <input type="checkbox" name="compare" value="compare" (change)="selectQuotesToCompare($event, plan, plan.id)" /> Compare
         </div>
     </div>
     <p class="danger" *ngIf="minPlansToCompare">Please select atleast 2 plans to Compare</p>
