@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { QuotesFilterPipe } from './shared/quotes-filter.pipe';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 import { QuoteFormComponent } from './components/quote-form/quote-form.component';
@@ -14,11 +17,14 @@ import { GetQuotesService } from './shared/services/get-quotes.service';
     AppComponent,
     QuoteFormComponent,
     DisplayPlansComponent,
-    ComparePlansComponent
+    ComparePlansComponent,
+    QuotesFilterPipe
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [GetQuotesService],
   bootstrap: [AppComponent]

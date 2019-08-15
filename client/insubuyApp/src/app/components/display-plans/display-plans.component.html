@@ -10,15 +10,15 @@
           Plans Filtered Using: {{filterby}}
         </div>
 
-    <div *ngFor="let plan of quotes | quotesFilter:filterby">
+    <div *ngFor="let plan of plans | quotesFilter:filterby">
         <ul>
-            <li>{{plan.id}}</li>
-            <li> {{plan.price}} </li>
-            <li> {{plan.name}} </li>
-            <li> {{plan.type}} </li>
-            <li> {{plan.description}} </li>
-            <li> {{plan.section}} </li>
-            <li> {{plan.bestSellers}} </li>
+            <li>Id: {{plan.id}}</li>
+            <li>Price:  {{plan.price}} </li>
+            <li>Name: {{plan.name}} </li>
+            <li>Type: {{plan.type}} </li>
+            <li>Description: {{plan.description}} </li>
+            <li>Section: {{plan.section}} </li>
+            <li>Best Sellers: {{plan.bestSellers}} </li>
         </ul>
     </div>
 </div>

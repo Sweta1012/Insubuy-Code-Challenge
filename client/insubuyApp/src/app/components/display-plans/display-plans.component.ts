@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { data } from '../../shared/data/quotes';
 import { GetQuotesService } from '../../shared/services/get-quotes.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-display-plans',
@@ -11,6 +12,7 @@ export class DisplayPlansComponent implements OnInit {
 
   quotes:any = data.quotes;
   plans = [];
+  
   filterby:string = '';
 
   constructor(private _getQuotesService: GetQuotesService) { }
@@ -22,7 +24,5 @@ export class DisplayPlansComponent implements OnInit {
         console.log("plans local variable:: " ,this.plans);
       })
   }
-
-  
 
 }
