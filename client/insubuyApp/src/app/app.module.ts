@@ -12,6 +12,7 @@ import { DisplayPlansComponent } from './components/display-plans/display-plans.
 import { ComparePlansComponent } from './components/compare-plans/compare-plans.component';
 
 import { GetQuotesService } from './shared/services/get-quotes.service';
+import { CheckAgeDirective } from './shared/validators/check-age.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { GetQuotesService } from './shared/services/get-quotes.service';
     QuoteFormComponent,
     DisplayPlansComponent,
     ComparePlansComponent,
-    QuotesFilterPipe
+    QuotesFilterPipe,
+    CheckAgeDirective
   ],
   imports: [
     BrowserModule,

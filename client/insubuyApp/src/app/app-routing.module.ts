@@ -10,8 +10,8 @@ const routes: Routes = [
   {path: 'quotes', component: QuoteFormComponent},
   {path: 'insubuyplans', component: DisplayPlansComponent},
   {path: 'compareplans', component: ComparePlansComponent},
-  {path: '', redirectTo: '/insubuyplans', pathMatch: 'full'},
-  {path: '**', component: DisplayPlansComponent}
+  {path: '', redirectTo: '/quotes', pathMatch: 'full'},
+  {path: '**', component: QuoteFormComponent}
 ];
 
 @NgModule({

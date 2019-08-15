@@ -1,1 +1,15 @@
 <p>compare-plans works!</p>
+
+<div>
+    <p *ngFor="let plan of plansToCompare">
+            <li>Id: {{plan.id}}</li>
+            <li>Price:  {{plan.price}} </li>
+            <li>Name: {{plan.name}} </li>
+            <li>Type: {{plan.type}} </li>
+            <li>Description: {{plan.description}} </li>
+            <li>Section: {{plan.section}} </li>
+            <li>Best Sellers: {{plan.bestSellers}} </li>
+    </p>
+
+    <button (click)="goBack()">Go back</button>
+</div>
