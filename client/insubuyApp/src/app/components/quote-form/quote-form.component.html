@@ -1,5 +1,72 @@
-<div class="quoteForm">
-    <form>
+<div class="quoteForm"> 
+    <form [formGroup]="quotesForm" autocomplete="off">
+
+         <div class="form-group">
+            <label for="policyMaximum" autofocus>Choose your maximum policy</label>
+            <div>
+                    <select id="policyMax" formControlName="policyMax" name="policyMax">
+                            <option value="50">50,000</option>
+                            <option value="100">100,000</option>
+                            <option value="250">250,000</option>
+                            <option value="500">500,000</option>
+                    </select>
+            </div>
+            <ul class="danger" *ngIf="quotesForm.get('policyMax').errors && (quotesForm.get('policyMax').touched || quotesForm.get('policyMax').dirty)" role="alert">
+                <span>Please choose Policy Maximum </span>
+            </ul>
+         </div>
+
+         <div class="form-group">
+                <label for="age" autofocus>Age/Year</label>
+                <div>
+                    <input type="text" formControlName="age" name="age" id="age"  maxlength="4" placeholder="Provide your Age or Birth Year"/> 
+                </div>
+                <ul class="danger" *ngIf="quotesForm.get('age').errors && (quotesForm.get('age').touched || quotesForm.get('age').dirty)" role="alert">
+                        <span>Please provide you Age or Birth Year </span>
+                    </ul>
+        </div>
         
+        <div class="form-group">
+                <label for="travelDates" autofocus>Travel Dates (mm/dd/yyyy)</label>
+                <div>
+                    <input type="text" formControlName="startDate" name="startDate" id="startDate" placeholder="Start Date"/> 
+                    <input type="text" formControlName="endDate" name="endDate" id="endDate" placeholder="End Date"/>
+                </div>
+
+                <ul class="danger" *ngIf="quotesForm.get('startDate').errors && (quotesForm.get('startDate').touched || quotesForm.get('startDate').dirty)" role="alert">
+                        <span>Please choose Start Date </span>
+                </ul>
+
+                <ul class="danger" *ngIf="quotesForm.get('endDate').errors && (quotesForm.get('endDate').touched || quotesForm.get('endDate').dirty)" role="alert">
+                        <span>Please choose End Date </span>
+                </ul>
+        </div>
+
+        <div class="form-group">
+                <label for="citizenship" autofocus>Citizenship</label>
+                <div>
+                    <input type="text" formControlName="citizenship" name="citizenship" id="citizenship"  placeholder="Provide your country of citizenship"/> 
+                </div>
+
+                <ul class="danger" *ngIf="quotesForm.get('citizenship').errors && (quotesForm.get('citizenship').touched || quotesForm.get('citizenship').dirty)" role="alert">
+                        <span>Please choose your country of citizenship </span>
+                </ul>
+        </div>
+
+        <div class="form-group">
+                <label for="state" autofocus>State</label>
+                <div>
+                    <input type="text" formControlName="state" name="state" id="state"  placeholder="Choose State"/> 
+                </div>
+
+                <ul class="danger" *ngIf="quotesForm.get('state').errors && (quotesForm.get('state').touched || quotesForm.get('state').dirty)" role="alert">
+                        <span>Please provide your state. </span>
+                </ul>
+        </div>
+
     </form>
+
+    <div class="submitQuotes">
+            <button type="submit" class="quotesBtn" [disabled]="quotesForm.invalid" (click)="getQuotes()">GET QUOTES </button>
+        </div>
 </div>

@@ -11,4 +11,5 @@ export class GetQuotesService {
   getQuotes = () => {
     return this._http.get('http://localhost:8080/quotes');
   }
+   
 }
