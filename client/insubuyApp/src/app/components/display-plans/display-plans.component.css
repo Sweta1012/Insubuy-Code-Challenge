@@ -2,9 +2,22 @@
     width: 100%;
 }
 
+.filterby {
+    background-color: rgb(190, 233, 190);
+    color: rgb(14, 112, 14);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    width: 60%;
+    margin: 0.5%;
+    margin-left: 10%;
+}
+
 .wrapper {
     display: grid;
     grid-template-columns: 50% 50%;
+    margin: 5%;
+    margin-bottom: 1%;
 }
 
 .wrapper > div {
@@ -13,13 +26,24 @@
 }
 
 header {
-    width: 90%;
+    width: 100%;
+    background-color: whitesmoke;
+    height: 100px;
 }
 
 header > h2 {
     text-align: center;
     color: blue;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 1.5%;
+    font-size: 30px;
+}
+
+label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(107, 105, 105);
 }
 .searchBar {
     width: 70%;
@@ -31,9 +55,7 @@ header > h2 {
 
 .bestSeller {
     margin-left: 2%;
-    margin-right: 0;
-    margin-top: 4%;
-    height: 40px;
+    height: 15.5px;
     width: 20px;
 }
 
@@ -41,10 +63,38 @@ header > h2 {
     padding-top: 30%;
 }
 
-.plans {
-
-}
-
 li {
     list-style: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(102, 99, 99);
+}
+
+.danger {
+    text-align: center;
+    width: 100%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    color: rgb(200, 13, 13);
+    font-weight: bold;
+}
+
+footer {
+    width: 100%;
+    height: 25%;
+    margin-bottom: 2%;
+}
+
+footer > .submit {
+    padding-left: 18%;
+}
+
+.submit > .compareBtn {
+    width: 80%;
+    background-color: gray;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    font-weight: bold;
 }

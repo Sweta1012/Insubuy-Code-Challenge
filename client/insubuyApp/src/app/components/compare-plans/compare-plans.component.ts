@@ -10,12 +10,15 @@ import { Router } from '@angular/router';
 export class ComparePlansComponent implements OnInit {
 
   plansToCompare = [];
+  isPlans:boolean;
 
   constructor(private _service: GetQuotesService, private _router: Router) { }
 
   ngOnInit() {
     this.plansToCompare = this._service.getPlansToCompare();
-    console.log( this.plansToCompare)
+    if(this.plansToCompare.length == 0) {
+      this.isPlans = true;
+    }
   }
 
   goBack() {

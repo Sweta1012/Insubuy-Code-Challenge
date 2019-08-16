@@ -1,0 +1,66 @@
+.comparePlans {
+    width: 100%;
+} 
+
+header {
+    width: 100%;
+    background-color: whitesmoke;
+    height: 100px;
+}
+
+header > h2 {
+    padding: 1.5%;
+    text-align: center;
+    color: blue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+}
+
+.noPlans {
+    width: 100%;
+    justify-content: center;
+}
+
+.noPlans > h1 {
+    color: red;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    background-color: rgb(246, 195, 195);
+    width: 90%;
+    text-align: center;
+    padding: 5%;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 2em;
+    margin: 2%;
+    margin-bottom: 5%;
+}
+
+.wrapper > div {
+    margin-left: 2%;
+}
+
+li {
+    list-style: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(102, 99, 99);
+}
+
+footer {
+    width: 100%;
+}
+
+footer > button {
+    width: 30%;
+    margin-left: 35%;
+    background-color: whitesmoke;
+    color: rgb(22, 22, 179);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    font-weight: bold;
+}

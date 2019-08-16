@@ -1,15 +1,28 @@
-<p>compare-plans works!</p>
+<div class="comparePlans">
 
-<div>
-    <p *ngFor="let plan of plansToCompare">
-            <li>Id: {{plan.id}}</li>
-            <li>Price:  {{plan.price}} </li>
-            <li>Name: {{plan.name}} </li>
-            <li>Type: {{plan.type}} </li>
-            <li>Description: {{plan.description}} </li>
-            <li>Section: {{plan.section}} </li>
-            <li>Best Sellers: {{plan.bestSellers}} </li>
-    </p>
+        <header>
+            <h2> Compare Plans </h2>
+        </header> 
 
-    <button (click)="goBack()">Go back</button>
+        <div *ngIf="isPlans" class="noPlans">
+            <h1>Please Go back and select plans to compare.</h1>
+        </div>
+
+        <div class="wrapper" *ngIf="!isPlans">
+            <div *ngFor="let plan of plansToCompare">
+                    <li>Id: {{plan.id}}</li>
+                    <li>Price:  {{plan.price}} </li>
+                    <li>Name: {{plan.name}} </li>
+                    <li>Type: {{plan.type}} </li>
+                    <li>Description: {{plan.description}} </li>
+                    <li>Section: {{plan.section}} </li>
+                    <li>Best Sellers: {{plan.bestSellers}} </li>
+            </div>
+
+        </div>
+
+        <footer>
+                <button (click)="goBack()">Go back</button>
+        </footer>
+
 </div>

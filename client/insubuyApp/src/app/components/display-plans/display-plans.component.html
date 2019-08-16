@@ -11,7 +11,7 @@
         <label>Best Seller</label>
     
                       
-        <div *ngIf="filterby">
+        <div *ngIf="filterby" class="filterby">
             Plans Filtered Using: {{filterby}}
         </div>        
     </header>
@@ -29,7 +29,8 @@
                 <li>Best Sellers: {{plan.bestSellers}} </li>
             </ul>
             <div class="compare">
-              <input type="checkbox" name="compare" value="compare" (change)="selectQuotesToCompare($event, plan, plan.id)" /> Compare
+              <input type="checkbox" class="bestSeller" name="compare" value="compare" (change)="selectQuotesToCompare($event, plan, plan.id)" />
+              <label>Compare</label>
             </div>
         </div>
 
