@@ -12,9 +12,10 @@ import { GetQuotesService } from '../../shared/services/get-quotes.service';
 export class QuoteFormComponent implements OnInit {
 
   quotesForm: FormGroup;
-  // age: number;
-  // citizenship:string = '';
-  // state:string = '';
+  invalidAge:boolean = false;
+  invalidCitizen:boolean = false;
+  invalidState:boolean = false;
+  invalidDate:boolean = false;
 
       validationMessages = {
         'age': {
@@ -66,23 +67,23 @@ export class QuoteFormComponent implements OnInit {
     console.log(age);
 
             if(age > 100 && age < 1919) {
-              console.log("age : 101 to 1918")
+              this.invalidAge = true;
                 return false;
             }
           
           else if(age > 2019) {
-            console.log("age : >2019")
+            this.invalidAge = true;
             return false;
           }
           else if(age <= 0) {
-            console.log("age : <=0")
+            this.invalidAge = true;
             return false;
           }
           else if (age == undefined) {
-            console.log("age undefined");
+            this.invalidAge = true;
             return false;
           }
-          console.log("valid age")
+          this.invalidAge = false;
           return true;
      
   }
@@ -107,55 +108,43 @@ export class QuoteFormComponent implements OnInit {
       });
     }
 
-    validateInput(value):boolean {
-      if(/^[a-zA-Z]+$/.test(value)) {
+    validateCitizenInput(value):boolean {
+      if(/^[a-zA-Z\s]+$/.test(value)) {
+        this.invalidCitizen = false;
         return true;
       }
-      console.log("invalid input from citizenship or state");
-      return false;
+        this.invalidCitizen = true;
+        return false;
     }
 
-     isValidDate(dateString) {
-        // First check for the pattern
-        if(!/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(dateString))
-            return false;
-
-        // Parse the date parts to integers
-        var parts = dateString.split("/");
-        var day = parseInt(parts[1], 10);
-        var month = parseInt(parts[0], 10);
-        var year = parseInt(parts[2], 10);
-
-        // Check the ranges of month and year
-        if(year < 1000 || year > 3000 || month == 0 || month > 12)
-            return false;
-
-        var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
-
-        // Adjust for leap years
-        if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
-            monthLength[1] = 29;
-
-        // Check the range of the day
-        return day > 0 && day <= monthLength[month - 1];
-};
+    validateStateInput(value):boolean {
+      if(/^[a-zA-Z\s]+$/.test(value)) {
+        this.invalidState = false;
+        return true;
+      }
+        this.invalidState = true;
+        return false;
+    }
 
     validateEndDate(startDate, endDate):boolean {
-      var regExp = /(\d{1,2})\/(\d{1,2})\/(\d{2,4})/;
-      if(parseInt(endDate.replace(regExp, "$3$2$1")) > parseInt(startDate.replace(regExp, "$3$2$1"))){
-          console.log("end date is greater than start date");
-          return true;
-      } else{
-          console.log("end date is smaller than start date");
-          return false;
-    }
+
+        var start = new Date(startDate);
+        var end   = new Date(endDate);
+
+          if(end.getTime() >= start.getTime()) {
+              this.invalidDate = false;
+              return true;
+          } else {
+            this.invalidDate = true;
+            return false;
+          }
     }
 
     validateForm():boolean {
 
       let validateAge = this.validateAge(this.quotesForm.get('age').value),
-          validateCitizen = this.validateInput(this.quotesForm.get('citizenship').value),
-          validateState = this.validateInput(this.quotesForm.get('state').value),
+          validateCitizen = this.validateCitizenInput(this.quotesForm.get('citizenship').value),
+          validateState = this.validateStateInput(this.quotesForm.get('state').value),
           validateEndDate = this.validateEndDate(this.quotesForm.get('startDate').value, this.quotesForm.get('endDate').value);
 
         if(this.quotesForm.invalid || validateAge==false || validateCitizen==false || validateState==false, validateEndDate==false ) {
@@ -175,7 +164,10 @@ export class QuoteFormComponent implements OnInit {
     if(this.validateForm()) {
       this._router.navigate(['insubuyplans']);
     }
-
+  }
+  
+  reset() {
+    this.quotesForm.reset();
   }
 
 }
