@@ -1,41 +1,49 @@
-<div class="wrapper">
+<div class="displayPlans">
 
-          <div>
-                <input type="text" placeholder="Search for Plans" [(ngModel)]="filterby" >
+    <header>
 
-                <div class="bestSeller">
-                    <input type="checkbox" name="bestSeller" value="best seller" (change)="getBestSellers($event)" /> Best Sellers
-                </div>          
-          </div>
-           
-          <br/>
+        <h2>Insubuy Quote Plans</h2>
+
+        <input type="text" placeholder="Search for Plans" [(ngModel)]="filterby" class="searchBar">
+
+       
+        <input type="checkbox" name="bestSeller" value="best seller" (change)="getBestSellers($event)" class="bestSeller"/> 
+        <label>Best Seller</label>
     
+                      
         <div *ngIf="filterby">
-          Plans Filtered Using: {{filterby}}
+            Plans Filtered Using: {{filterby}}
+        </div>        
+    </header>
+
+    <div class="wrapper">
+
+        <div *ngFor="let plan of plans | quotesFilter:filterby">
+            <ul class="plans">
+                <li>Id: {{plan.id}}</li>
+                <li>Price:  {{plan.price}} </li>
+                <li>Name: {{plan.name}} </li>
+                <li>Type: {{plan.type}} </li>
+                <li>Description: {{plan.description}} </li>
+                <li>Section: {{plan.section}} </li>
+                <li>Best Sellers: {{plan.bestSellers}} </li>
+            </ul>
+            <div class="compare">
+              <input type="checkbox" name="compare" value="compare" (change)="selectQuotesToCompare($event, plan, plan.id)" /> Compare
+            </div>
         </div>
 
-    <div *ngFor="let plan of plans | quotesFilter:filterby">
-        <ul>
-            <li>Id: {{plan.id}}</li>
-            <li>Price:  {{plan.price}} </li>
-            <li>Name: {{plan.name}} </li>
-            <li>Type: {{plan.type}} </li>
-            <li>Description: {{plan.description}} </li>
-            <li>Section: {{plan.section}} </li>
-            <li>Best Sellers: {{plan.bestSellers}} </li>
-        </ul>
-        <div class="compare">
-          <input type="checkbox" name="compare" value="compare" (change)="selectQuotesToCompare($event, plan, plan.id)" /> Compare
+    </div>
+
+    <footer>
+        <p class="danger" *ngIf="minPlansToCompare">Please select atleast 2 plans to Compare</p>
+        <p class="danger" *ngIf="maxPlansToCompare">Only 4 plans can be compared at a time</p>
+
+        <div class="submit">
+          <button class="compareBtn" (click)="comparePlans()">
+              Compare Selected Plans
+          </button>
         </div>
-    </div>
-    <p class="danger" *ngIf="minPlansToCompare">Please select atleast 2 plans to Compare</p>
-    <p class="danger" *ngIf="maxPlansToCompare">Only 4 plans can be compared at a time</p>
-
-
-    <div class="submit">
-      <button class="compareBtn" (click)="comparePlans()">
-          Compare Selected Plans
-      </button>
-    </div>
+    </footer>
 
 </div>

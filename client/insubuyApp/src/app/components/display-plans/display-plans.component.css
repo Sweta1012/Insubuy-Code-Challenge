@@ -1,0 +1,50 @@
+.displayPlans {
+    width: 100%;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.wrapper > div {
+    display: grid;
+    grid-template-columns: 70% 20%;
+}
+
+header {
+    width: 90%;
+}
+
+header > h2 {
+    text-align: center;
+    color: blue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.searchBar {
+    width: 70%;
+    height: 40px;
+    margin-left: 7%;
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.bestSeller {
+    margin-left: 2%;
+    margin-right: 0;
+    margin-top: 4%;
+    height: 40px;
+    width: 20px;
+}
+
+.compare {
+    padding-top: 30%;
+}
+
+.plans {
+
+}
+
+li {
+    list-style: none;
+}
