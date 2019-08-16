@@ -1,0 +1,44 @@
+.display-plans{
+    width:100%;
+}
+.display-plans,.display-plans th, .display-plans td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 6px 8px;
+}
+.filter-section{
+    display: flex;
+}
+.filter-section > div{
+    display: flex;
+}
+.filter-section > div:nth-child(1){
+    flex: 0 0 60%;
+    display: flex;
+    justify-content: space-between;
+}
+.filter-section > div:nth-child(2){
+    flex: 0 0 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.filter-section > div:nth-child(2) button{
+    height:28px;
+    padding: 4px 10px;
+}
+.filter-container{
+    padding:20px;
+}
+.fields-section select,.fields-section input{
+    padding: 4px 30px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.fields-section button{
+    cursor: pointer;
+}
+.fields-section > div{
+    display: flex;
+    flex-direction: column;
+}

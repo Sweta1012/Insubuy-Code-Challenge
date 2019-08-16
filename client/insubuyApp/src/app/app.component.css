@@ -1,0 +1,22 @@
+.wrapper{
+    max-width: 1024px;
+    width: 100%;
+    margin: 10px auto;
+    border: 1px solid #dedede;
+}
+
+.wrapper .header{
+    background-color: #f0f3f6;
+    color: #4453d0;
+    padding: 30px 45px;
+}
+
+.wrapper .header h4{
+    font-family: monospace;
+    font-size: 21px;
+    margin: 0;
+}
+
+.btnClass{
+    float:right;
+}

@@ -1,0 +1,63 @@
+
+<div class="filter-container">
+    <div class="filter-section">
+      <div class="fields-section"> 
+        <div>
+        <label>Select value to sort</label>
+      <select (change)="sort()" [(ngModel)] = "selectedSortVal">
+          <option [ngValue]="null">Select</option>
+          <option value="price">Price</option>
+          <option value="name">Name</option>
+        </select>
+      </div>
+      <div>
+        <label>Type</label>
+      <select (change)="filterChange(selectedFilterVal)" [(ngModel)]="selectedFilterVal">
+        <option [ngValue]="null">Select</option>
+        <option value="name">Policy Max</option>
+        <option value="bestSellers">Best Seller</option>
+        <option value="type">Type</option>
+        <option value="section">Section</option>
+      </select>
+    </div>
+    <div>
+      <label>Filter Value</label>
+      <input type="text" (input)="PolicyChange(filterVal)" [disabled]="!selectedFilterVal" [(ngModel)]="filterVal" /> 
+    </div>
+      </div>
+      <div>
+          <button class = "btnClass" [disabled]="comparedData.length < 2" (click)="compareListData()">compare</button>
+      </div>  
+   </div>
+  </div>
+  <div class="quote-container">
+    <div class="quote-list">
+      <table class="display-plans">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Type</th>
+            <th>Section</th>
+            <th>Price:</th>
+            <th>Best Sellers</th>
+          </tr>
+        </thead> 
+        <tbody *ngIf="filteredData.length">
+          <tr *ngFor="let item of filteredData">
+            <td><input type="checkbox" [(ngModel)]="item.checked" [disabled]="!item.checked && comparedData.length == 4" (change)="compareCheckBox(item)"></td>
+            <td>{{item.name}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.type}}</td>
+            <td>{{item.section}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.bestSellers}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="compareModalSection">
+    <app-compare-list *ngIf="isModalOpen" [compareModalData]="comparedData" (closeModal) ="closeModal($event)"></app-compare-list>
+  </div>
